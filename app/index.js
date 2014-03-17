@@ -95,9 +95,20 @@ var ReinosBootstrapGenerator = yeoman.generators.Base.extend({
 
     html = html + '@import "../bower_components/font-awesome/less/font-awesome.less";\n@fa-font-path: "../fonts/font-awesome";\n\n';
 
+    html = html + '@import "../bower_components/snapjs/snap.css";\n\n'
+
+    html = html + '@import "vendor/r_default.less";\n\n';
+
     html = html + '.browsehappy {\n  margin: 0.2em 0; \n  background: #ccc; \n  color: #000; \n  padding: 0.2em 0; \n}\n\n';
     html = html + '.jumbotron {\n  margin: 50px auto 0 auto;\n}';
+
     this.write('app/styles/main.less', html);
+
+    this.copy('vendor_css/fonts.less', 'app/styles/vendor/fonts.less');
+    this.copy('vendor_css/r_custom_forms.less', 'app/styles/vendor/r_custom_forms.less');
+    this.copy('vendor_css/r_default.less', 'app/styles/vendor/r_default.less');
+    this.copy('vendor_css/r_mixins.less', 'app/styles/vendor/r_mixins.less');
+    this.copy('vendor_css/typography.less', 'app/styles/vendor/typography.less');
   },
 
   writeIndex: function () {
@@ -113,8 +124,7 @@ var ReinosBootstrapGenerator = yeoman.generators.Base.extend({
 
     this.indexFile = this.appendScripts(this.indexFile, 'scripts/main.js', [
       'bower_components/jquery/jquery.js',
-      'scripts/main.js',
-      'scripts/hello.js'
+      'scripts/main.js'
     ]);
 
     // wire Bootstrap plugins
@@ -136,7 +146,7 @@ var ReinosBootstrapGenerator = yeoman.generators.Base.extend({
     defaults.push('Font Awesome <i class="fa fa-flag"></i>');
 
     this.mainJsFile = 'console.log(\'\\\'Allo \\\'Allo!\');';
-    this.mainCoffeeFile = 'console.log "\'Allo from CoffeeScript!"';
+    //this.mainCoffeeFile = 'console.log "\'Allo from CoffeeScript!"';
 
     // iterate over defaults and create content string
     defaults.forEach(function (el) {
@@ -160,9 +170,10 @@ var ReinosBootstrapGenerator = yeoman.generators.Base.extend({
     this.mkdir('app');
     this.mkdir('app/scripts');
     this.mkdir('app/styles');
+    this.mkdir('app/styles/vendor');
     this.mkdir('app/images');
     this.write('app/index.html', this.indexFile);
-    this.write('app/scripts/hello.coffee', this.mainCoffeeFile);
+    //this.write('app/scripts/hello.coffee', this.mainCoffeeFile);
     this.write('app/scripts/main.js', this.mainJsFile);
   },
 

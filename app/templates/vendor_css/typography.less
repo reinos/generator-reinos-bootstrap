@@ -1,0 +1,98 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	color: #222;
+}
+
+body {
+	font-family: @font1;
+	font-style: normal;
+	font-size: @basefont;
+	background: @gray;
+
+	text-rendering: optimizeLegibility;
+
+	-moz-font-feature-settings:"pnum" 1, "kern" 1; 
+	-moz-font-feature-settings:"pnum=1, kern=1"; 
+	-ms-font-feature-settings:"pnum" 1, "kern" 1; 
+	-o-font-feature-settings:"pnum" 1, "kern" 1; 
+	-webkit-font-feature-settings:"pnum" 1, "kern" 1; 
+	font-feature-settings:"pnum" 1, "kern" 1;
+
+	hyphens: auto;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: auto;
+	border: 0;
+}
+
+h1 {font-size: 240%;}
+h2 {font-size: 150%;}
+h3 {font-size: 120%;}
+h4 {font-size: 110%;}
+h5 {font-size: 105%;}
+h6 {font-size: 100%;}
+
+p,table,ul,ol {
+	margin: 0.5em 0 1.2em;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+ul {
+	li {
+		margin-bottom: 0.2em;
+	}
+}
+
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	
+}
+
+//youtube video responsive
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

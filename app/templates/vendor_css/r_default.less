@@ -1,0 +1,180 @@
+//include others
+@import "fonts.less";
+@import 'typography.less';
+@import 'r_mixins.less';
+@import 'r_custom_forms.less';
+
+//--------------------------------------------------------------
+//snap.js
+//load the default styles
+//--------------------------------------------------------------
+#toggle-left-menu,
+#toggle-right-menu {
+
+	margin :0;
+	padding-left:0;
+	padding-right:0;	
+	.icon-bar {
+		background: #fff;
+	}
+
+	.sr-only {
+		font-size: @basefont *1.2;
+	}
+	
+	//only show on mobile
+	@media(@only-mobile) { visibility: hidden; display:none;}
+
+	width:44%;
+
+	
+}
+#toggle-left-menu { 
+	float:left;
+	
+	a {
+		position:absolute;
+		left:15px;
+		top:-8px;
+	}
+}
+
+#toggle-right-menu { 
+	float:right; 
+	text-align: right;
+	
+	.icon-bar {
+		float: right;
+		clear: both;
+	}
+
+	a {
+		position:absolute;
+		right:10%;
+		top:-8px;
+	}
+}
+
+.snap-drawers {
+	background:lighten(@zwart,20%);
+	
+	.snap-drawer {
+		border-right:2px solid lighten(@zwart,35%);
+	}
+	
+	h3 {
+		color: @wit;
+		padding:10px 10px 10px 10px;	
+		margin:5px 0 10px;
+		font-weight:bold;
+		font-size:@basefont * 1.5;
+	}
+	
+	ul {
+		margin:0;
+		padding:0;
+		list-style: none;
+		
+		li {			
+			border-top:1px solid lighten(@zwart,35%);
+			border-bottom:1px solid @zwart;
+			font-size: @basefont * 1.2;
+			margin:0;
+
+			a {
+				text-decoration:none;
+				display:block;
+				padding:15px 10px;
+				color:darken(@wit,10%);
+				border-left:5px solid lighten(@zwart,20%);
+			}
+
+			&:hover{
+				background:lighten(@zwart,25%);	
+
+				> a {
+					border-left:5px solid @blauw;
+				}
+			}
+
+			&:active{
+				background:lighten(@zwart,15%);	
+
+				> a {
+					border-left:5px solid @blauw;
+				}
+			}
+			
+			&.active,
+			&.parent-active  {
+				background:lighten(@zwart,15%);	
+				
+				> a {
+					border-left:5px solid @blauw;
+				}
+			}
+
+			ul {
+				background:lighten(@zwart,20%);
+
+				li {
+					margin:0;
+					border-bottom:none;
+					a {
+						padding-left:35px;
+
+						&:hover {
+							border-left:15px solid @blauw;
+							padding-left:25px;
+						}
+					}
+
+					&.active {
+						a {
+							border-left:15px solid @blauw;
+							padding-left:25px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//twitter typeahead
+.twitter-typeahead {
+	width:100%;
+	
+	
+	input.tt-hint{
+		width:100%;
+		height:33px;
+		padding:6px 12px;
+		color: fade(@zwart, 20%);
+		font-size:14px;
+		opacity:1;
+	}
+	
+	.tt-dropdown-menu {
+		width:100%;
+		background: @wit;
+		color: fade(@zwart, 80%);
+		padding:0;
+		margin:0;
+		
+		.tt-suggestion {
+			padding:3px 12px;
+			
+			&.tt-is-under-cursor,
+			&:hover {
+				background: fade(@rood, 10%);	
+			}
+			
+			p {
+				margin:0;
+				padding:0;
+				font-weight: bold;
+			}
+		}
+	}
+}
